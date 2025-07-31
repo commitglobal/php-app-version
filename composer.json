@@ -1,0 +1,33 @@
+{
+    "name": "commitglobal/app-version",
+    "type": "library",
+    "description": "Lightweight package that enables easy display and management of your application's version information.",
+    "license": "MPL-2.0",
+
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.84",
+        "orchestra/testbench": "^8.0|^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CommitGlobal\\AppVersion\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CommitGlobal\\AppVersion\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
