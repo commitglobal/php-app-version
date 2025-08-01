@@ -3,7 +3,6 @@
     "type": "library",
     "description": "Lightweight package that enables easy display and management of your application's version information.",
     "license": "MPL-2.0",
-
     "require": {
         "php": "^8.1",
         "illuminate/support": "^10.0|^11.0|^12.0"
@@ -20,6 +19,13 @@
     "autoload-dev": {
         "psr-4": {
             "CommitGlobal\\AppVersion\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CommitGlobal\\AppVersion\\AppVersionServiceProvider"
+            ]
         }
     },
     "scripts": {
