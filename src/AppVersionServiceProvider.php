@@ -16,6 +16,7 @@ class AppVersionServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->registerConfig();
+        $this->registerViews();
         $this->registerSingleton();
 
         $this->registerSentryIntegration();
@@ -30,6 +31,11 @@ class AppVersionServiceProvider extends ServiceProvider
     private function registerConfig(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/app-version.php', 'app-version');
+    }
+
+    private function registerViews(): void
+    {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'app-version');
     }
 
     private function registerSingleton(): void
@@ -61,7 +67,7 @@ class AppVersionServiceProvider extends ServiceProvider
         }
 
         FilamentView::registerRenderHook(
-            Config::get('app-version.filament-hook', PanelsRenderHook::FOOTER),
+            Config::get('app-version.filament-hook') ?: PanelsRenderHook::FOOTER,
             fn () => View::make('app-version::banner', ['version' => $this->app->make('version')]),
         );
     }
